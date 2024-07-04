@@ -1,0 +1,16 @@
+<style>
+  h2, *{
+    font-family: IranSans , sans-serif;
+  }
+</style>
+
+<h2 style="font-family: IranSans , sans-serif" mat-dialog-title>آیا از توقف تمرین خود اطمینان دارید؟</h2>
+<mat-dialog-content>
+  <p>شما تا این لحظه {{passedData.progress}}% از تمرین خود را انجام داده اید</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="accent" [mat-dialog-close]="false">خیر</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="true" >بله</button>
+</mat-dialog-actions>
+
+<!--cdkFocusInitial-->

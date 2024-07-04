@@ -1,0 +1,9 @@
+@if(onGoingTraining == false){
+  <mat-tab-group>
+    <mat-tab label="تمرین های جدید"><app-new-training (TrainigStart)="onGoingTraining = true" fxLayoutAlign="center" class="mt-3"></app-new-training></mat-tab>
+    <mat-tab label="تمرین های قبلی"><app-past-training fxLayoutAlign="center" class="mt-3"></app-past-training></mat-tab>
+  </mat-tab-group>
+}
+@if(onGoingTraining){
+  <app-current-training (DialogEmmiter)="onGoingTraining = false"></app-current-training>
+}

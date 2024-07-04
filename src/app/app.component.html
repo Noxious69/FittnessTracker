@@ -1,0 +1,44 @@
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav border border-3" fixedInViewport
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>خانه</mat-toolbar>
+    <mat-nav-list>
+      @if(!isAuth){
+        <a style="font-family: IranSans , sans-serif;" mat-list-item routerLink="/login" (click)="drawer.close()">ورود</a>
+      }
+      @if(!isAuth){
+        <a style="font-family: IranSans , sans-serif;" mat-list-item routerLink="/signup" (click)="drawer.close()">ثبت نام</a>
+      }
+      @if(isAuth){
+        <a style="font-family: IranSans , sans-serif;" mat-list-item routerLink="/training" (click)="drawer.close()">تمرین</a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bg-info" color="primary">
+<!--      @if (isHandset$ | async) {-->
+<!--        <button-->
+<!--          type="button"-->
+<!--          aria-label="Toggle sidenav"-->
+<!--          mat-icon-button-->
+<!--          (click)="drawer.toggle()">-->
+<!--          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
+<!--        </button>-->
+<!--      }-->
+        <button
+          class="mx-2"
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <span class="mx-2"> فیتنس در خانه</span>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

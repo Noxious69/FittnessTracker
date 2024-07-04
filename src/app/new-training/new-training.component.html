@@ -1,0 +1,25 @@
+<section fxLayout fxLayoutAlign="center">
+  <mat-card fxFlex="400px" fxFlex.xs="100%" style="font-family: IranSans , sans-serif">
+    <mat-card-header fxLayoutAlign="center" class="mb-4">
+      <mat-card-title style="font-family: IranSans , sans-serif">
+        تمرین جدید مورد نظرتو انتخاب کن
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayoutAlign="center">
+      <mat-form-field>
+        <mat-label>انتخاب کنید</mat-label>
+        <mat-select #selectTraining>
+          <mat-option style="font-family: IranSans , sans-serif" value="1">شنا</mat-option>
+          <mat-option style="font-family: IranSans , sans-serif" value="2">دراز نشست</mat-option>
+          <mat-option style="font-family: IranSans , sans-serif" value="3">پلانک</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer fxLayoutAlign="center">
+      <button [disabled]="!selectTraining.value" (click)="onStartTraining()" mat-flat-button>شروع کنید</button>
+    </mat-card-footer>
+  </mat-card>
+</section>
+

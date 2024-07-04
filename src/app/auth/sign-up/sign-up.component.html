@@ -1,0 +1,58 @@
+<form name="form" #sf="ngForm" (ngSubmit)="onSubmit(sf)" fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" class="m-3 container-fluid">
+
+  <mat-form-field name="email" style="width: 300px" >
+    <mat-label>ایمیل</mat-label>
+    <input
+      type="text"
+      required
+      matInput
+      ngModel
+      email
+      #emailInp="ngModel"
+      [ngModelOptions]="{standalone: true}"
+    >
+    @if(emailInp.hasError('required') && emailInp.touched) {
+      <mat-hint class="text-danger">ایمیل نباید خالی باشد</mat-hint>
+    }
+
+    <!--      @if(!emailInp.hasError('required') && emailInp.touched) {-->
+    <!--        <mat-hint class="text-danger">لطفا ایمیل معتبر وارد کنید</mat-hint>-->
+    <!--      }-->
+
+  </mat-form-field>
+
+  <mat-form-field name="pass" style="width: 300px" >
+    <mat-label>رمز عبور</mat-label>
+    <input
+      matInput
+      ngModel
+      required
+      #pwInp="ngModel"
+      minlength="8"
+      type="password"
+      [ngModelOptions]="{standalone: true}"
+      maxlength="20"
+      (input)="onInput($event)"
+    >
+    <mat-hint align="end">{{value().length}} / 20</mat-hint>
+    <mat-hint>حداقل 8 کاراکتر </mat-hint>
+
+    @if(pwInp.hasError('required') && pwInp.touched) {
+      <mat-error>لطفا یک رمز عبور معتبر وارد کنید</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field name="datepicker" style="width: 300px" >
+    <label>تاریخ تولد</label>
+    <input ngModel name="birth" required matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle  matIconSuffix  [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-checkbox>با شرایط و ضوابت موافقم</mat-checkbox>
+
+  <button class="m-3" type="submit" [disabled]="sf.invalid" color="primary" mat-raised-button>ثبت</button>
+
+</form>
+

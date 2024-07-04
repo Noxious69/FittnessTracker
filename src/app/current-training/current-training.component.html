@@ -1,0 +1,11 @@
+<section fxLayout="column" fxLayoutGap="15" fxLayoutAlign="center center">
+  <mat-progress-spinner #progresss class="mt-2" [value]="progress"></mat-progress-spinner>
+  <h1>{{progress}} %</h1>
+  <p>ادامه بده</p>
+<!--  @if(progresss.value=="100"){-->
+<!--    <p>کارت عالی بود!!</p>-->
+<!--  }-->
+
+  <button (click)="onStop()" mat-flat-button color="accent">توقف</button>
+</section>
+
